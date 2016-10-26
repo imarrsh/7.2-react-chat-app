@@ -13,10 +13,9 @@ var AppRouter = Backbone.Router.extend({
     '': 'index'
   },
   initialize: function(){
-    // initialize?
+    // initialize stuff 
   },
   index: function(){
-    
 
     ReactDOM.render(
       React.createElement(App),

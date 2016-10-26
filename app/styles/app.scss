@@ -26,6 +26,11 @@ h1, h2 {
 }
 
 .chat-header {
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   padding: 10px 0;
   background-color: tomato;
   color: #ffffff;
@@ -40,9 +45,32 @@ h1, h2 {
   position: relative;
 }
 
+.login-wrapper {
+  background-color: tomato;
+  height: 100vh;
+  h1{
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    font-size: 62px;
+  }
+  input {
+    font-size: 22px;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    background-color: transparent;
+    &::-webkit-input-placeholder{
+      color: white;
+    }
+  }
+}
+
 .chat-wrap {
+  padding: 75px 0 100px;
   background-color: lighten(tomato, 10%);
   height:100vh;
+  overflow: scroll;
 }
 
 .msg {

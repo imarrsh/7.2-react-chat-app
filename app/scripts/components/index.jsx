@@ -27,6 +27,7 @@ var App = React.createClass({
   getInitialState: function(){
     var self = this;
     var messages = new chats.MessageCollection();
+    messages.sort();
 
     messages.fetch().then(function(data){
       // console.log(messages)

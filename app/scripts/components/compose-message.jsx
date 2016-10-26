@@ -22,6 +22,8 @@ var ComposeMessage = React.createClass({
       user_avatar: this.state.avatar
     };
     this.props.submitMessage(messageInput);
+    
+    this.setState({messageInput: ''});
   },
   render: function(){
     return (

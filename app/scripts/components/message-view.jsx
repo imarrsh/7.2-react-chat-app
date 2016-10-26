@@ -18,7 +18,7 @@ var MessageView = React.createClass({
     var messages = this.props.messageData.map(function(message){
       return (
         <MessageBody 
-          key={message.get('_id')} 
+          key={message.get('_id') || message.cid} 
           content={message.get('content')} 
           user={message.get('username')}
         />

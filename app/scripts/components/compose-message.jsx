@@ -3,16 +3,21 @@ var React = require('react');
 var ComposeMessage = React.createClass({
   getInitialState: function(){
     return {
-      messageInput: ''
+      messageInput: '',
+      currentUser: 'imarsh'
     }
   },
   typedMessage: function(e){
     var str = e.target.value;
-    console.log(str);
+    this.setState({messageInput: str});
   },
   handleSubmit: function(e){
     e.preventDefault();
-    this.props.submitMessage();
+    var messageInput = {
+      content: this.state.messageInput,
+      username: this.state.currentUser
+    };
+    this.props.submitMessage(messageInput);
   },
   render: function(){
     return (
@@ -22,13 +27,13 @@ var ComposeMessage = React.createClass({
             <form action="" onSubmit={this.handleSubmit}>
               <div className="row">
                 <div className="col-xs-11">
-                  <input onChange={this.typedMessage} type="text" name="message" placeholder="Message" className="form-control"/>
+                  <input onChange={this.typedMessage} value={this.state.messageInput} type="text" name="message" placeholder="Message" className="form-control"/>
                 </div>
                 <div className="col-xs-1">
                   <input type="submit" value="Send" className="form-control btn btn-primary"/>
                 </div>
               </div>
-              <input type="hidden" name="username" value="imarsh" />
+              <input type="hidden" name="username" value={this.state.currentUser} />
             </form>
           </div>
         </div>

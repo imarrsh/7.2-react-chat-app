@@ -21,8 +21,9 @@ var App = React.createClass({
       collection: messages
     }
   },
-  submitMessage: function(){
-    console.log('top level submit handling');
+  submitMessage: function(input){
+    this.state.collection.create(input);
+    this.setState({collection: messages});
   },
   render: function(){
     return(

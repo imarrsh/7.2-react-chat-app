@@ -7,35 +7,6 @@ var users = require('../models/user');
 var ComposeMessage = require('./compose-message.jsx').ComposeMessage;
 var MessageView = require('./message-view.jsx').MessageView;
 
-var App = React.createClass({
-  getInitialState: function(){
-    var self = this;
-    var messages = new chats.MessageCollection();
-
-    messages.fetch().then(function(data){
-      // console.log(messages)
-      self.setState({collection: messages})
-    });
-
-    return {
-      collection: messages
-    }
-  },
-  submitMessage: function(input){
-    this.state.collection.create(input);
-    this.setState({collection: messages});
-  },
-  render: function(){
-    return(
-      <div className="wrapper">
-        <AppHeader />
-        <MessageView messageData={this.state.collection}/>
-        <ComposeMessage submitMessage={this.submitMessage}/>
-      </div>
-    );
-  }
-});
-
 var AppHeader = React.createClass({
   render: function(){
     return (
@@ -49,6 +20,35 @@ var AppHeader = React.createClass({
         </div>
       </header>
     )
+  }
+});
+
+var App = React.createClass({
+  getInitialState: function(){
+    var self = this;
+    var messages = new chats.MessageCollection();
+
+    messages.fetch().then(function(data){
+      // console.log(messages)
+      self.setState({collection: messages});
+    });
+
+    return {
+      collection: messages
+    }
+  },
+  submitMessage: function(input){
+    this.state.collection.create(input);
+    this.setState({collection: this.state.collection});
+  },
+  render: function(){
+    return(
+      <div className="wrapper">
+        <AppHeader />
+        <MessageView messageData={this.state.collection}/>
+        <ComposeMessage submitMessage={this.submitMessage}/>
+      </div>
+    );
   }
 });
 

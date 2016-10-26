@@ -4,7 +4,9 @@ var ComposeMessage = React.createClass({
   getInitialState: function(){
     return {
       messageInput: '',
-      currentUser: 'imarsh'
+      currentUser: 'imarsh',
+      time: new Date().getTime(),
+      avatar: ''
     }
   },
   typedMessage: function(e){
@@ -15,7 +17,9 @@ var ComposeMessage = React.createClass({
     e.preventDefault();
     var messageInput = {
       content: this.state.messageInput,
-      username: this.state.currentUser
+      username: this.state.currentUser,
+      time: this.state.time,
+      user_avatar: this.state.avatar
     };
     this.props.submitMessage(messageInput);
   },

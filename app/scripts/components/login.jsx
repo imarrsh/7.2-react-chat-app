@@ -18,18 +18,24 @@ var LoginWrap = React.createClass({
 });
 
 var Login = React.createClass({
+  handleLogin: function(e){
+    e.preventDefault();
+    console.log('no submit!')
+  },
   render: function(){
     return(
       <LoginWrap>
 
-        <div className="login">
-          <h1>Chat Reactor</h1>
-          <form action="">
-            <input type="text" name="username" placeholder="Enter a username"/>
-            <input type="submit" value="Join Chat!"/>
-          </form>
+        <div className="col-md-6 col-md-offset-3">
+          <div className="login-controls">
+            <h1>Chat Reactor</h1>
+            <form action="" onSubmit={this.handleLogin}>
+              <input type="text" name="username" className="un-input" placeholder="Enter a username"/>
+              <input type="submit" value="Join Chat!"/>
+            </form>
+          </div>
         </div>
-        
+
       </LoginWrap>
     );
   }

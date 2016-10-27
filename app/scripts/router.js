@@ -3,7 +3,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var messages = require('./models/message');
-var users = require('./models/user');
+var User = require('./models/user').User;
 
 var Login = require('./components/login.jsx').Login;
 var App = require('./components/index.jsx').App;
@@ -14,12 +14,13 @@ var AppRouter = Backbone.Router.extend({
     'chat/' : 'chat'
   },
   initialize: function(){
-    // initialize stuff 
+    this.user = new User();
+    console.log(this.user);
   },
   index: function(){
 
     ReactDOM.render(
-      React.createElement(Login),
+      React.createElement(Login, {router: this}),
       document.getElementById('app')
     );
   },

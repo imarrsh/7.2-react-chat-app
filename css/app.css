@@ -5812,6 +5812,8 @@ h1, h2 {
     border-radius: 30px;
     background-color: transparent; }
     .login-controls input::-webkit-input-placeholder {
+      -webkit-transition: color 100ms ease-in-out;
+      transition: color 100ms ease-in-out;
       color: white; }
     .login-controls input:focus {
       outline: none; }

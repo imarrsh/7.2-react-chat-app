@@ -11,22 +11,22 @@ var App = require('./components/index.jsx').App;
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
-    'chat/' : 'chat'
+    'chat/': 'chat'
   },
   initialize: function(){
     this.user = new User();
-    console.log(this.user);
   },
   index: function(){
 
     ReactDOM.render(
+      // passing router to the props of login
       React.createElement(Login, {router: this}),
       document.getElementById('app')
     );
   },
   chat: function(){
     ReactDOM.render(
-      React.createElement(App),
+      React.createElement(App, {router: this}),
       document.getElementById('app')
     );
   }

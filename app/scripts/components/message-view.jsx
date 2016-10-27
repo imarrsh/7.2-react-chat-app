@@ -6,6 +6,7 @@ var MessageBody = React.createClass({
   render: function(){
     return (
       <div className="msg msg-default">
+        <span className="date-text">{this.props.date}</span>
         <span className="chat-text">{this.props.user}: {this.props.content}</span>
       </div>
     )
@@ -21,6 +22,7 @@ var MessageView = React.createClass({
           key={message.get('_id') || message.cid} 
           content={message.get('content')} 
           user={message.get('username')}
+          date={message.get('date')}
         />
       );
     });

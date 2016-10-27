@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 
 var User = Backbone.Model.extend({
   defaults: {
-    username: 'anonymous',
+    username: '',
     user_avatar: ''
   },
   idAttribute: '_id'
